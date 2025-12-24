@@ -205,6 +205,8 @@ main() {
     set -x
     docker run -it --rm --net=host ${GPU_FLAG} ${USER_ID} ${MOUNT_X} \
     	--privileged \
+	--device /dev/arduino_wheels:/dev/arduino_aw_wheels \
+	--device /dev/arduino_steering:/dev/arduino_aw_steering \
         -e XAUTHORITY=${XAUTHORITY} -e XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR -e NVIDIA_DRIVER_CAPABILITIES=all -e TZ="$(cat /etc/timezone)" \
         ${WORKSPACE} ${MAP} ${DATA} ${IMAGE} \
         ${LAUNCH_CMD}
