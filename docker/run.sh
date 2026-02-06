@@ -206,6 +206,7 @@ main() {
     docker run -it --rm --net=host ${GPU_FLAG} ${USER_ID} ${MOUNT_X} \
     	--privileged \
         -v /dev:/dev \
+        -v /mnt/second/folder/ws_livox:/ws_livox \
         -e XAUTHORITY=${XAUTHORITY} -e XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR -e NVIDIA_DRIVER_CAPABILITIES=all -e TZ="$(cat /etc/timezone)" \
         ${WORKSPACE} ${MAP} ${DATA} ${IMAGE} \
         ${LAUNCH_CMD}
